@@ -19,12 +19,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button btnYes = (Button) findViewById(R.id.btnYes);
         Button btnNo = (Button) findViewById(R.id.btnNo);
-//        assert btnYes != null;
         btnYes.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-               // view.setEnabled(false);
                 AsyncHttpClient client = new AsyncHttpClient();
                 client.get("http://207.154.250.228/lab/java.php?command=yes", new AsyncHttpResponseHandler() {
                     @Override
@@ -34,12 +32,10 @@ public class MainActivity extends AppCompatActivity {
                             assert txtResponse != null;
                             txtResponse.setText(new String(responseBody));
                         }
-                //        view.setEnabled(true);
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                  //      view.setEnabled(true);
                     }
                 });
 
@@ -60,12 +56,10 @@ public class MainActivity extends AppCompatActivity {
                             assert txtResponse != null;
                             txtResponse.setText(new String(responseBody));
                         }
-                        //        view.setEnabled(true);
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                        //      view.setEnabled(true);
                     }
                 });
 
@@ -74,28 +68,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-/*
-    @Override
-    public void onClick(final View view) {
-        view.setEnabled(false);
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://207.154.250.228/lab/java.php?command=yes", new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if(responseBody != null){
-                    TextView txtResponse = (TextView) findViewById(R.id.txtResponse);
-                    assert txtResponse != null;
-                    txtResponse.setText(new String(responseBody));
-                }
-                view.setEnabled(true);
-            }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                view.setEnabled(true);
-            }
-        });
-
-    }*/
 }
 
